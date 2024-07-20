@@ -1,23 +1,22 @@
 import React, { useState } from 'react';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import 'bulma/css/bulma.css';
 import Signup from "./component/Signup";
 import Login from "./component/Login";
-import backgroundImage from './component/images/img.jpg';
+import Home from "./component/Home";
+
 
 
 
 function App() {
-
-  const handleSignup = (formData) => {
-    console.log("Form submitted with data:", formData);
-};
-
   return (
-    <div className="App">
-
-      <Signup onSubmit={handleSignup} />
-      
-    </div>
+      <Router>
+          <Routes>
+              <Route path="/" Component={Home} />
+              <Route path="/login" Component={Login} />
+              <Route path="/signup" Component={Signup} />
+          </Routes>
+      </Router>
   );
 }
 
